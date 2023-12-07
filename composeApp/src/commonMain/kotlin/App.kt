@@ -19,13 +19,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import bottombar.BottomBarScreen
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import cafe.adriel.voyager.transitions.FadeTransition
 import cafe.adriel.voyager.transitions.ScaleTransition
-import cafe.adriel.voyager.transitions.SlideTransition
 
 @Composable
 fun App() {
@@ -61,6 +60,12 @@ class MainScreen : Screen {
                 navigator?.push(SecondScreen())
             }) {
                 Text("Navigator")
+            }
+            Spacer(modifier = Modifier.height(18.dp))
+            Button(onClick = {
+                navigator?.push(BottomBarScreen())
+            }) {
+                Text("BottomBar")
             }
         }
     }
